@@ -3,6 +3,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../components/Header';
 import PopularSec from '../components/PopularSec';
 import NewSec from '../components/NewSec';
+import Footer from '../components/Footer';
 
 const PopularSec_books = [
   {
@@ -38,6 +39,7 @@ const NewSec_books = [
     Author: "Suzy Menkes",
     img: require('../images/img_book_ysl.png'),
     description: "Yves Saint Laurent is a book by Suzy Menkes that provides an in-depth look at the life and work of the legendary fashion designer Yves Saint Laurent. The book explores Saint Laurent's rise to fame, his influence on the fashion industry, and his enduring legacy. It covers his early life, his innovative designs, and his impact on fashion history.",
+    rate: 4,
     cost: "$49.99",
   },
   {
@@ -46,6 +48,7 @@ const NewSec_books = [
     Author: "Rudolf Koch",
     img: require('../images/img_book_tbos.png'),
     description: "The book of Signs is a book by Rudolf Koch that explores the art of typography and letter design. The book covers the history of typefaces, different styles and techniques, and provides step-by-step instructions for creating stunning typographic designs. It also includes tips and inspiration for both beginners and experienced typographers, making it a comprehensive guide to the world of typography.",
+    rate: 3,
     cost: "$39.99",
   },
   {
@@ -54,6 +57,7 @@ const NewSec_books = [
     Author: "Tansy E. Hoskin",
     img: require('../images/img_book_stitchedup.png'),
     description: "Stiched Up is a book by Tansy E. Hoskin that explores the art of embroidery and textile design. The book covers the history of stitching techniques, different styles and methods, and provides step-by-step instructions for creating stunning embroidered designs. It also includes tips and inspiration for both beginners and experienced embroiderers, making it a comprehensive guide to the world of textile arts.",
+    rate: 3,
     cost: "$29.99",
   },
 ];
@@ -77,6 +81,7 @@ export default function BookStore() {
           </View>
         )}
       />
+      <Footer/>
     </SafeAreaView>
   );
 }

@@ -1,8 +1,28 @@
 import { FlatList, View, Text, StyleSheet, Image } from 'react-native';
 
+function Rating( {rate} ){
+    const stars = [1, 2, 3, 4, 5];
+    return(
+        <View style={styles.NewSec_book_rate_container}>
+            {stars.map((star) => {
+                const starIcon = star <= rate ? require('../images/icon_star_filled.png') : require('../images/icon_star_empty.png');
+
+                return(
+                    <Image
+                        key={star}
+                        source={starIcon}
+                        style={{ width: 14, height: 14, marginRight: 2 }}
+                        resizeMode="contain"
+                    />
+                );
+            })}
+        </View>
+    );
+}
+
 export default function NewSec({ book_data }) {
     return(
-        <View style={styles.newSec_container}>
+        <View style={styles.NewSec_container}>
             <View style={styles.NewSec_title_container}>
                 <Text style={styles.NewSec_title_text}>Newest </Text>
             </View>
@@ -17,6 +37,7 @@ export default function NewSec({ book_data }) {
                             <View style={styles.NewSec_book_Image_container}>
                                 <Image source={item.img} style={styles.NewSec_book_Image} resizeMode="cover"/>
                             </View>
+                            <Rating rate={item.rate}/>
                             <Text style={styles.NewSec_book_Title}>{item.title}</Text>
                             <Text style={styles.NewSec_book_Author}>{item.Author}</Text>
                         </View>
@@ -28,7 +49,7 @@ export default function NewSec({ book_data }) {
 }
 
 const styles = StyleSheet.create({
-    newSec_container:{
+    NewSec_container:{
         width: "100%",
         height: 400,
 /*         borderWidth: 2,
@@ -69,6 +90,12 @@ const styles = StyleSheet.create({
         height: "100%",
         width: "100%",
         borderRadius: 10,
+    },
+    NewSec_book_rate_container:{
+        display: "flex",
+        flexDirection: "row",
+        marginTop: 5,
+        marginBottom: 5,
     },
     NewSec_book_Title:{
         fontSize: 16,
