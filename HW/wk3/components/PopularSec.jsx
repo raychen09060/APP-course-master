@@ -17,7 +17,7 @@ export default function PopularSec({ book_data }) {
                         <Pressable
                             onPress={() => {
                                 router.push({
-                                    pathname: "/book/[id]", 
+                                    pathname: "book/[id]", 
                                     params: { id: item.id } 
                                 });
                             }}

@@ -5,6 +5,7 @@ export const PopularSec_books = [
     Author: "Dana Thomas",
     img: require('../images/img_book_fashionopolis.png'),
     description: "Fashionopolis is a book by Dana Thomas that explores the impact of the fashion industry on the environment and society. It delves into the history of fashion, its current state, and the efforts being made to create a more sustainable future for the industry. The book covers topics such as fast fashion, labor practices, and the environmental consequences of clothing production. It also highlights innovative designers and companies that are working towards a more ethical and sustainable fashion industry.",
+    rate: "no rating",
     cost: "$49.99",
 },
 {
@@ -13,6 +14,7 @@ export const PopularSec_books = [
     Author: "Patrick Mauriès",
     img: require('../images/img_book_chanel.png'),
     description: "Chanel is a book by Patrick Mauriès that provides an in-depth look at the life and work of the iconic fashion designer Coco Chanel. The book explores Chanel's rise to fame, her influence on the fashion industry, and her enduring legacy. It covers her early life, her innovative designs, and her impact",
+    rate: "no rating",
     cost: "$39.99",
 },
 {
@@ -21,6 +23,7 @@ export const PopularSec_books = [
     Author: "June & Lucy",
     img: require('../images/img_book_calligraphy.png'),
     description: "Calligraphy is a book by June & Lucy that explores the art of beautiful writing. The book covers the history of calligraphy, different styles and techniques, and provides step-by-step instructions for creating stunning calligraphic designs. It also includes tips and inspiration for both beginners and experienced calligraphers, making it a comprehensive guide to the world of calligraphy.",
+    rate: "no rating",
     cost: "$29.99",
 },
 ];

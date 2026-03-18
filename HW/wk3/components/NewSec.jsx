@@ -1,6 +1,7 @@
-import { FlatList, View, Text, StyleSheet, Image } from 'react-native';
+import { FlatList, View, Text, StyleSheet, Image, Pressable } from 'react-native';
+import { router } from 'expo-router';
 
-function Rating( {rate} ){
+export function Rating( {rate} ){
     const stars = [1, 2, 3, 4, 5];
     return(
         <View style={styles.NewSec_book_rate_container}>
@@ -33,6 +34,14 @@ export default function NewSec({ book_data }) {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={item => item.id}
                     renderItem={({item}) => (
+                        <Pressable
+                            onPress={() => {
+                                router.push({
+                                    pathname: "book/[id]", 
+                                    params: { id: item.id } 
+                                });
+                            }}
+                        >
                         <View style={styles.NewSec_book_container}>
                             <View style={styles.NewSec_book_Image_container}>
                                 <Image source={item.img} style={styles.NewSec_book_Image} resizeMode="cover"/>
@@ -41,6 +50,7 @@ export default function NewSec({ book_data }) {
                             <Text style={styles.NewSec_book_Title}>{item.title}</Text>
                             <Text style={styles.NewSec_book_Author}>{item.Author}</Text>
                         </View>
+                        </Pressable>
                     )}
                 />
             </View>
