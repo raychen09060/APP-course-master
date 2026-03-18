@@ -1,18 +1,18 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
 
-export default function Footer() {
+export default function Footer({ page }) {
     return(
         <View style={styles.footer_container}>
             <View style={styles.icon_container}>
-                <Image source={require('../images/icon_home.png')} style={styles.icon}/>
+                <Image source={page === "home" ? require('../images/icon_home_actived.png') : require('../images/icon_home.png')} style={styles.icon}/>
                 <Text style={{fontSize: 12}}>Home</Text>
             </View>
             <View style={styles.icon_container}>
-                <Image source={require('../images/icon_nav_bookmark.png')} style={styles.icon}/>
+                <Image source={page === "wishlist" ? require('../images/icon_nav_bookmark_actived.png') : require('../images/icon_nav_bookmark.png')} style={styles.icon}/>
                 <Text style={{fontSize: 12}}>Wishlists</Text>
             </View>
             <View style={styles.icon_container}>
-                <Image source={require('../images/icon_mybook.png')} style={styles.icon}/>
+                <Image source={page === "mybooks" ? require('../images/icon_mybook_actived.png') : require('../images/icon_mybook.png')} style={styles.icon}/>
                 <Text style={{fontSize: 12}}>My Books</Text>
             </View>
         </View>

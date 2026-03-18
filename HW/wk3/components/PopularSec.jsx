@@ -1,4 +1,5 @@
-import { FlatList, View, Text, StyleSheet, Image } from 'react-native';
+import { FlatList, View, Text, StyleSheet, Image, Pressable } from 'react-native';
+import { router } from 'expo-router';
 
 export default function PopularSec({ book_data }) {
     return(
@@ -13,13 +14,23 @@ export default function PopularSec({ book_data }) {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={item => item.id}
                     renderItem={({item}) => (
-                        <View style={styles.PopularSec_book_container}>
-                            <View style={styles.PopularSec_book_Image_container}>
-                                <Image source={item.img} style={styles.PopularSec_book_Image} resizeMode="cover"/>
+                        <Pressable
+                            onPress={() => {
+                                router.push({
+                                    pathname: "/book/[id]", 
+                                    params: { id: item.id } 
+                                });
+                            }}
+                        >
+                            <View style={styles.PopularSec_book_container}>
+                                <View style={styles.PopularSec_book_Image_container}>
+                                    <Image source={item.img} style={styles.PopularSec_book_Image} resizeMode="cover"/>
+                                </View>
+                                <Text style={styles.PopularSec_book_Title}>{item.title}</Text>
+                                <Text style={styles.PopularSec_book_Author}>{item.Author}</Text>
                             </View>
-                            <Text style={styles.PopularSec_book_Title}>{item.title}</Text>
-                            <Text style={styles.PopularSec_book_Author}>{item.Author}</Text>
-                        </View>
+                        </Pressable>
+                        
                     )}
                 />
             </View>
