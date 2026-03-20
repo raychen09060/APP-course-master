@@ -1,7 +1,10 @@
 import { Stack, router } from "expo-router";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { useState } from "react";
 
 export default function Layout() {
+    const [isBookmarked, setIsBookmarked] = useState(false);
+
     return (
         <Stack>
             <Stack.Screen name="index" options={{ headerShown: false }} />
@@ -17,9 +20,9 @@ export default function Layout() {
                         </TouchableOpacity>
                     ),
                     headerRight: () => (
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => setIsBookmarked(!isBookmarked)}>
                             <View style={styles.icon_container}>
-                                <Image source={require('../images/icon_bookmark.png')} style={styles.icon} />
+                                <Image source={isBookmarked ? require('../images/icon_nav_bookmark_actived.png') : require('../images/icon_bookmark.png')} style={styles.icon} />
                             </View>
                         </TouchableOpacity>
                     ),
