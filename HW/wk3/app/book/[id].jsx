@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { useState, useEffect } from 'react';
 import { BookSec, WishlistSec_books } from '../../data/books';
@@ -42,29 +42,34 @@ export default function Books(){
                     )
                 }}
             />
-            <View style={styles.Book_container}>
-                <View style={styles.Book_Image_container}>
-                    <Image source={books.img} style={styles.Book_Image} resizeMode="cover"/>
-                </View>
-                <View style={styles.Book_Title_container}>
-                    <Text style={styles.Book_Title}>{books.title}</Text>
-                </View>
-                <View style={styles.Book_Author_container}>
-                    <Text style={styles.Book_Author}>{books.Author}</Text>
-                </View>
-                {typeof books.rate === 'number' && (
-                    <View style={styles.Book_Rating_container}>
-                        <Rating rate={books.rate}/>
-                        <Text>{books.rate.toFixed(1)}/5.0</Text>
+            <ScrollView style={styles.scroll}
+                contentContainerStyle={{paddingBottom: 50}}
+                showsVerticalScrollIndicator={false}
+            >
+                <View style={styles.Book_container}>
+                    <View style={styles.Book_Image_container}>
+                        <Image source={books.img} style={styles.Book_Image} resizeMode="cover"/>
                     </View>
-                )}
-                <View style={styles.Book_Description_container}>
-                    <Text style={styles.Book_Description}>{books.description}</Text>
+                    <View style={styles.Book_Title_container}>
+                        <Text style={styles.Book_Title}>{books.title}</Text>
+                    </View>
+                    <View style={styles.Book_Author_container}>
+                        <Text style={styles.Book_Author}>{books.Author}</Text>
+                    </View>
+                    {typeof books.rate === 'number' && (
+                        <View style={styles.Book_Rating_container}>
+                            <Rating rate={books.rate}/>
+                            <Text>{books.rate.toFixed(1)}/5.0</Text>
+                        </View>
+                    )}
+                    <View style={styles.Book_Description_container}>
+                        <Text style={styles.Book_Description}>{books.description}</Text>
+                    </View>
+                    <View style={styles.Book_Cost_container}>
+                        <Text style={styles.Book_Cost}>BUY NOW FOR {books.cost}</Text>
+                    </View>
                 </View>
-                <View style={styles.Book_Cost_container}>
-                    <Text style={styles.Book_Cost}>BUY NOW FOR {books.cost}</Text>
-                </View>
-            </View>
+            </ScrollView>
             <Footer page="book"/>
         </View>
     );
@@ -90,11 +95,14 @@ const styles = StyleSheet.create({
         width: "80%",
         height: "80%",
     },
+    scroll: {
+        flex: 1,
+        width: "100%",
+    },
     Book_container: {
         display: "flex",
         alignItems: "center",
-        width: 400,
-        height: 680,
+        width: "100%",
         marginTop: 20,
 /*         borderWidth: 2,
         borderColor: "#00ff00", */
